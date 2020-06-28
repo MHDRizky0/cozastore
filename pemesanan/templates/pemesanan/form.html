@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form class="bg0 p-t-75 p-b-85" method="POST">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+				<div class="m-l-25 m-r--38 m-lr-0-xl">
+					{% csrf_token %}
+					<div class="row">
+								<div class="col-8">
+									{{ form.barang|as_crispy_field }}
+									{{ form.size|as_crispy_field }}
+									{{ form.color|as_crispy_field }}
+									{{ form.qty|as_crispy_field }}
+									</div>
+							</div>
+							<button type="submit" class="btn btn-lg btn-block btn-warning">Ubah</button>
+							<a href="{% url 'cart' %}" class="btn btn-lg btn-block btn-secondary">Batal</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+{% endblock content %}
